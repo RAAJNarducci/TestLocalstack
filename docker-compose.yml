@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  example:
+    image: example
+    build:
+      context: .
+      dockerfile: src/Example/Dockerfile
+    environment:
+      AWS_ACCESS_KEY_ID: "test"
+      AWS_SECRET_ACCESS_KEY: "test"
+      AWS_DEFAULT_REGION: "us-east-1"
+    networks:
+      - my-network
+networks:
+  my-network:
+    external: true
+  
